@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Treatment Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7; /* light gray background */
+        }
+        h1, h2 {
+            color: #333; /* dark gray text */
+        }
+        form {
+            max-width: 400px; /* limit form width */
+            margin: 40px auto; /* center form */
+            padding: 20px; /* add some padding */
+            background-color: #fff; /* white background */
+            border: 1px solid #ddd; /* light gray border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+        }
+        input[type="file"] {
+            padding: 10px; /* add some padding */
+            border: 1px solid #ccc; /* light gray border */
+        }
+        button[type="submit"] {
+            background-color: #4CAF50; /* green button */
+            color: #fff; /* white text */
+            padding: 10px 20px; /* add some padding */
+            border: none; /* remove border */
+            border-radius: 5px; /* rounded corners */
+            cursor: pointer; /* change cursor on hover */
+        }
+        button[type="submit"]:hover {
+            background-color: #3e8e41; /* darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload CSV file with Patients data</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <br><br>
+        <button type="submit">Upload</button>
+    </form>
+    <!-- Display prediction text if available -->
+    {% if prediction_text_lr %}
+    <h2>Prediction Result from Logistic Regression Algorithm</h2>
+    <p>{{ prediction_text_lr }}</p>
+    {% endif %}
+    <!-- Display prediction text if available -->
+    {% if prediction_text_rfc %}
+    <h2>Prediction Result from Random Forest Classification</h2>
+    <p>{{ prediction_text_rfc }}</p>
+    {% endif %}
+    <script>
+        
+    </script>
+</body>
+</html>
